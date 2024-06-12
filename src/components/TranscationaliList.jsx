@@ -7,7 +7,7 @@ const TranscationaliList = () => {
     
   return (
    <div>
-     <h3 className='text-3xl'>History</h3>
+     <h3 className='text-3xl '>History</h3>
     <ul id="list" className="list w-[360px]">
         {transcations.map(transcation=>(
            <Transcation key={transcation.id} transcation={transcation}/>
