@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'
 
 const TranscationaliList = () => {
+    const {transcations} = useContext(GlobalContext)
+    
   return (
    <div>
      <h3 className='text-3xl'>History</h3>
     <ul id="list" className="list w-[360px]">
-      <li className="minus">
-        Cash <span>-$400</span><button className="delete-btn">x</button>
-      </li>
+        {transcations.map(transcation=>(
+            <li className="minus" key={transcation.id}>
+            {transcation.text} <span>{transcation.amount}</span><button className="delete-btn">x</button>
+          </li>
+        ))}
+      
     </ul>
    </div>
   )
