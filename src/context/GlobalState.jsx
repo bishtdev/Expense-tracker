@@ -17,8 +17,24 @@ export const GlobalContext = createContext(initialState)
 // provider component
 export const GlobalProvider = ({children}) =>{
     const [state , dispatch] = useReducer(AppReducer, initialState)
+    
+    // actions
+    function deleteTrascation(id){
+        dispatch({
+            type: 'DELETE_TRANS',
+            payload: id
+        })
+    }
+
+    function addTranscation(transcation){
+        dispatch({
+            type: 'ADD_TRANS',
+            payload: transcation
+        })
+    }
+
     return(
-        <GlobalContext.Provider value={{transcations:state.transcations}}>
+        <GlobalContext.Provider value={{transcations:state.transcations, deleteTrascation, addTranscation}}>
             {children}
         </GlobalContext.Provider>
     )
